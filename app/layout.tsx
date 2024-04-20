@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import Header from "@/components/header/Header";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+// const roboto = Roboto({
+//   subsets: ["latin"],
+//   weight: ["100", "300", "400", "500", "700"],
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,10 +25,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
-          enableSystem
+          defaultTheme="yellow"
+          enableSystem={false}
+          themes={["zinc", "rose", "blue", "yellow", "green", "violet"]}
           disableTransitionOnChange
         >
+          <Header />
           {children}
         </ThemeProvider>
       </body>
